@@ -1,17 +1,17 @@
 # Apiiro Guardian skills — mostly disabled (control branch)
 
 This is the **control** side of an Apiiro-POV A/B test. It denies fixing,
-scanning, secure-prompt enrichment, setup, and threat-modeling — but
-deliberately leaves **read-only risk visibility** enabled:
+freeform querying, secure-prompt enrichment, setup, and threat-modeling —
+but deliberately leaves **risk visibility and scanning** enabled:
 
 - `guardian-risks` / `apiiro-risks` — list and inspect known risks
-- `guardian-query` / `apiiro-guardian` — ask Guardian freeform security
-  questions about the repo or org
+- `guardian-scan` / `apiiro-fast-scan` / `apiiro-diff-scan` — scan for
+  secrets/OSS vulnerabilities, diff-scan a branch, manage pre-commit hooks
 
-These two are vendored under `.claude/skills/` and allowed via
+These are vendored under `.claude/skills/` and allowed via
 `permissions.allow`, with `Bash` access scoped to just the CLI surface
-they need (`apiiro risks*`, `apiiro guardian query*`,
-`apiiro guardian repository*`) — not the full `apiiro` CLI.
+they need (`apiiro risks*`, `apiiro fast-scan*`, `apiiro diff-scan*`,
+`apiiro hooks*`) — not the full `apiiro` CLI.
 
 Everything else is disabled defensively, in case it's present at the user
 level (`~/.claude/skills/`), a project plugin, or an org-wide marketplace,
@@ -25,8 +25,8 @@ using two mechanisms:
   project-level settings here take precedence over user-level
   `~/.claude/settings.json`.
 
-Denied names: guardian-fix guardian-scan guardian-secure-prompt guardian-setup guardian-threat-model apiiro-fix apiiro-fast-scan apiiro-diff-scan apiiro-secure-prompt apiiro-setup apiiro-threat-model.
-Enabled names: guardian-risks guardian-query apiiro-risks apiiro-guardian.
+Denied names: guardian-fix guardian-query guardian-secure-prompt guardian-setup guardian-threat-model apiiro-fix apiiro-guardian apiiro-secure-prompt apiiro-setup apiiro-threat-model.
+Enabled names: guardian-risks guardian-scan apiiro-risks apiiro-fast-scan apiiro-diff-scan.
 
 **Known limitation:** these are string-prefix matches on the literal
 command, not a sandbox boundary — none of them catch invocation via an
