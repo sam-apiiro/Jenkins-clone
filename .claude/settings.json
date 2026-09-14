@@ -1,36 +1,43 @@
 {
   "permissions": {
+    "allow": [
+      "Skill(guardian-risks)",
+      "Skill(guardian-query)",
+      "Skill(apiiro-risks)",
+      "Skill(apiiro-guardian)",
+      "Bash(apiiro risks*)",
+      "Bash(apiiro guardian query*)",
+      "Bash(apiiro guardian repository*)"
+    ],
     "deny": [
       "Skill(guardian-fix)",
-      "Skill(guardian-query)",
-      "Skill(guardian-risks)",
       "Skill(guardian-scan)",
       "Skill(guardian-secure-prompt)",
       "Skill(guardian-setup)",
       "Skill(guardian-threat-model)",
-      "Skill(apiiro-guardian)",
       "Skill(apiiro-fix)",
-      "Skill(apiiro-risks)",
       "Skill(apiiro-fast-scan)",
       "Skill(apiiro-diff-scan)",
       "Skill(apiiro-secure-prompt)",
       "Skill(apiiro-setup)",
       "Skill(apiiro-threat-model)",
-      "Bash(apiiro *)",
-      "Bash(apiiro)"
+      "Bash(apiiro risks fix*)",
+      "Bash(apiiro fast-scan*)",
+      "Bash(apiiro hooks*)",
+      "Bash(apiiro diff-scan*)",
+      "Bash(apiiro guardian secure-prompt*)",
+      "Bash(apiiro threat-model*)",
+      "Bash(apiiro login*)",
+      "Bash(apiiro auth*)"
     ]
   },
   "skillOverrides": {
     "guardian-fix": "off",
-    "guardian-query": "off",
-    "guardian-risks": "off",
     "guardian-scan": "off",
     "guardian-secure-prompt": "off",
     "guardian-setup": "off",
     "guardian-threat-model": "off",
-    "apiiro-guardian": "off",
     "apiiro-fix": "off",
-    "apiiro-risks": "off",
     "apiiro-fast-scan": "off",
     "apiiro-diff-scan": "off",
     "apiiro-secure-prompt": "off",
